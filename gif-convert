@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+if [ -z "$1" ]
+then
+    echo "Usage: gif-convert <inputVideo> <outputGif>"
+else
+    ffmpeg -i $1 -pix_fmt rgb8 -r 10 $2 && gifsicle -O3 $2 -o $2
+fi
